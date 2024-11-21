@@ -2,11 +2,19 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  username = '';
+  password = '';
+  confirmPassword = '';
 
+  register() {
+    if (this.password === this.confirmPassword) {
+      console.log(`Inscription : ${this.username}, ${this.password}`);
+    } else {
+      console.log('Les mots de passe ne correspondent pas');
+    }
+  }
 }

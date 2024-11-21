@@ -1,1 +1,8 @@
-<p>navigation works!</p>
+<div class="navigation">
+    <h2>Conversations</h2>
+    <ul>
+        <li *ngFor="let chat of chats" (click)="openChat(chat.id)">
+            {{ chat.name }}
+        </li>
+    </ul>
+</div>
