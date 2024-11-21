@@ -1,13 +1,10 @@
 {
-  "name": "publication",
+  "name": "messagerie",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:publication": "node dist/publication/server/server.mjs"
+    "start:frontend": "ng serve",
+    "start:backend": "cd backend && flask run",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
   },
   "private": true,
   "dependencies": {
