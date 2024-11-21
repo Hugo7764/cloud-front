@@ -11,7 +11,6 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 CORS(app)
 
-# Importer et enregistrer les routes
 from routes.auth import auth
 app.register_blueprint(auth, url_prefix='/api/auth')
 
