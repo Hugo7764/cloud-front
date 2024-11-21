@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat',
+  standalone: true,
+  imports: [FormsModule, NgFor],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
 })

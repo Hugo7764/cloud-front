@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
+  standalone: true,
+  imports: [FormsModule, NgFor],
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
 })
