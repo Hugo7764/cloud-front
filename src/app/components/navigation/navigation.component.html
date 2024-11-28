@@ -2,7 +2,8 @@
     <h2>Conversations</h2>
     <ul>
         <li *ngFor="let chat of chats" (click)="openChat(chat.id)">
-            {{ chat.name }}
+            <a [routerLink]="['/chat', chat.id]">{{ chat.name }}</a>
         </li>
     </ul>
+    <a class="retour" [routerLink]="['/']">Accueil</a>
 </div>

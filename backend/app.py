@@ -1,18 +1,19 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from config import Config
+from flask_mysql_connector import MySQL
+from flask_jwt_extended import create_access_token, jwt_required, JWTManager
+import bcrypt
 
 app = Flask(__name__)
-app.config.from_object(Config)
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 CORS(app)
 
-from routes.auth import auth
-app.register_blueprint(auth, url_prefix='/api/auth')
+app.config['MYSQL_USER'] = 'zinedine'
+app.config['MYSQL_PASSWORD'] = 'zidane'
+app.config['MYSQL_DATABASE'] = 'messagerie'
+app.config['JWT_SECRET_KEY'] = 'secret'
+
+mysql = MySQL(app)
+jwt = JWTManager(app)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True)

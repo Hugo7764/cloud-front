@@ -1,8 +1,13 @@
-<div class="login">
-    <h2>Connexion</h2>
-    <form (ngSubmit)="login()">
-        <input [(ngModel)]="username" name="username" placeholder="Nom d'utilisateur" required />
-        <input [(ngModel)]="password" name="password" type="password" placeholder="Mot de passe" required />
-        <button type="submit">Se connecter</button>
-    </form>
-</div>
+<form (ngSubmit)="onLogin()" #loginForm="ngForm">
+  <div>
+    <label for="username">Identifiant</label>
+    <input id="username" [(ngModel)]="username" name="username" required>
+  </div>
+  <div>
+    <label for="password">Mot de passe</label>
+    <input id="password" [(ngModel)]="password" name="password" type="password" required>
+  </div>
+  <button type="submit">Se connecter</button>
+</form>
+
+<p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
